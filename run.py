@@ -73,3 +73,9 @@ class Board:
         Checks if the guess has already been made.
         """
         return (x, y) not in self.guesses
+
+def populate_board(board):
+    """
+    Populates the board with ships.
+    """
+    board.add_ships()
