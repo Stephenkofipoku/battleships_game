@@ -27,7 +27,7 @@ class Board:
         else:
             print("Computer's Board:")
         for row in self.board:
-            print(" ".join(row).replace("S", "@" if self.type == "player" else "."))
+            print(" ".join(row).replace("S", "@" if self.type == "player" else ".").replace("*", "@").replace("x", "X"))
 
     def add_ships(self):
         """
@@ -66,7 +66,7 @@ class Board:
             try:
                 x = int(input("Enter the x-coordinate (0-9): \n"))
                 y = int(input("Enter the y-coordinate (0-9): \n"))
-                if 0 <= x < self.size and 0 <= y < self.size and (x, y) not in self.guesses:
+                if self.validate_coordinates(x, y) and self.is_valid_guess(x, y):
                     valid_guess = True
                 else:
                     print("Invalid guess. Try again.")
@@ -113,9 +113,10 @@ def make_guess(computer_board, player_board):
     if (x, y) in computer_board.ships:
         print(f"Player guessed: ({x}, {y}). Player got a hit!")
         scores["player"] += 1
+        computer_board.board[x][y] = "*"
     else:
         print(f"Player guessed: ({x}, {y}). Player missed this time.")
-        player_board.board[x][y] = "X"
+        player_board.board[x][y] = "x"
 
     print("")
 
@@ -127,11 +128,33 @@ def make_guess(computer_board, player_board):
     if (x, y) in player_board.ships:
         print(f"Computer guessed: ({x}, {y}). Computer got a hit!")
         scores["computer"] += 1
+        player_board.board[x][y] = "*"
     else:
         print(f"Computer guessed: ({x}, {y}). Computer missed this time.")
-        player_board.board[x][y] = "X"
+        computer_board.board[x][y] = "X"
 
     print("")
+
+    print("After this round, the scores are: Player:", scores["player"], "Computer:", scores["computer"])
+    print("")
+
+    choice = input("Press any key to continue or 'n' to quit: ")
+    if choice.lower() == "n":
+        return
+
+    print("")
+
+    print(player_board.name + "'s Board:")
+    player_board.print()
+
+    print("")
+
+    print("Computer's Board:")
+    computer_board.print()
+
+    print("")
+
+    return
 
 
 def play_game(computer_board, player_board):
@@ -147,10 +170,9 @@ def play_game(computer_board, player_board):
         make_guess(computer_board, player_board)
         print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
         print("")
-        if scores["computer"] < player_board.num_ships and scores["player"] < computer_board.num_ships:
-            choice = input("-----------------------------------\nPress any key to continue or 'n' to quit: ")
-            if choice.lower() == "n":
-                break
+        choice = input("-----------------------------------\nPress any key to continue or 'n' to quit: ")
+        if choice.lower() == "n":
+            break
 
     print("Game Over")
     if scores["player"] == computer_board.num_ships:
