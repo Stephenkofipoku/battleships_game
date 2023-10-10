@@ -67,3 +67,9 @@ class Board:
         Validates the coordinates to ensure they are within the board size.
         """
         return 0 <= x < self.size and 0 <= y < self.size
+
+    def is_valid_guess(self, x, y):
+        """
+        Checks if the guess has already been made.
+        """
+        return (x, y) not in self.guesses
