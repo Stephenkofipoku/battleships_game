@@ -61,3 +61,9 @@ class Board:
         Returns a random integer between 0 and size.
         """
         return randint(0, self.size - 1)
+
+    def validate_coordinates(self, x, y):
+        """
+        Validates the coordinates to ensure they are within the board size.
+        """
+        return 0 <= x < self.size and 0 <= y < self.size
