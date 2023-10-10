@@ -92,3 +92,35 @@ def make_guess(board):
         scores[board.type] += 1
     else:
         print("Miss!")
+
+
+def play_game(computer_board, player_board):
+    """
+    Plays the game by alternating turns between the computer and the player.
+    """
+    print("Battleships Game")
+    print("Player: ", player_board.name)
+    print("Computer: ", computer_board.name)
+    print("")
+
+    while scores["computer"] < player_board.num_ships and scores["player"] < computer_board.num_ships:
+        print("Player's Turn")
+        print("--------------")
+        make_guess(computer_board)
+        print("Player's Score: ", scores["player"])
+        print("")
+
+        if scores["player"] == computer_board.num_ships:
+            break
+
+        print("Computer's Turn")
+        print("----------------")
+        make_guess(player_board)
+        print("Computer's Score: ", scores["computer"])
+        print("")
+
+    print("Game Over")
+    if scores["player"] == computer_board.num_ships:
+        print("Congratulations! You won!")
+    else:
+        print("Better luck next time. The computer won.")
