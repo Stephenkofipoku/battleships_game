@@ -2,7 +2,6 @@ from random import randint
 
 scores = {"computer": 0, "player": 0}
 
-
 class Board:
     """
     Main board class. Sets board size, the name of the ships,
@@ -24,9 +23,13 @@ class Board:
         Print the board grid.
         """
         print(f"{self.name}'s Board:")
-        for row in self.board:
-            print(" ".join(row).replace("S", "." if self.type == "player" else " "))
-    
+        if self.type == "player":
+            for row in self.board:
+                print(" ".join(row).replace("S", "@"))
+        else:
+            for row in self.board:
+                print(" ".join(row).replace("S", "."))
+
     def add_ships(self):
         """
         Randomly places the computer's fleet of battleships on the grid.
@@ -40,10 +43,10 @@ class Board:
                     self.board[x][y] = "S"
                     self.ships.append((x, y))
                     ship_placed = True
-    
+
     def computer_guess(self):
         """
-        Automatically selects coordinates for the computer's guess.
+        Generates computer's guess by randomly selecting coordinates.
         """
         valid_guess = False
         while not valid_guess:
@@ -61,15 +64,18 @@ class Board:
         """
         valid_guess = False
         while not valid_guess:
-            x = int(input("Enter the x-coordinate (0-9): \n"))
-            y = int(input("Enter the y-coordinate (0-9): \n"))
-            if 0 <= x < self.size and 0 <= y < self.size and (x, y) not in self.guesses:
-                valid_guess = True
-            else:
-                print("Invalid guess. Try again.")
+            try:
+                x = int(input("Enter the x-coordinate (0-9): \n"))
+                y = int(input("Enter the y-coordinate (0-9): \n"))
+                if 0 <= x < self.size and 0 <= y < self.size and (x, y) not in self.guesses:
+                    valid_guess = True
+                else:
+                    print("Invalid guess. Try again.")
+            except ValueError:
+                print("Invalid input. Please enter valid coordinates.")
         self.guesses.append((x, y))
         return (x, y)
-    
+
     def get_random_coordinate(self):
         """
         Returns a random integer between 0 and size.
@@ -96,20 +102,36 @@ def populate_board(board):
     board.add_ships()
 
 
-def make_guess(board):
+def make_guess(computer_board, player_board):
     """
     Makes a guess on the board and updates the scores.
     """
-    if board.type == "computer":
-        x, y = board.computer_guess()
-    else:
-        x, y = board.user_guess()
+    print("Player's Turn")
+    print("--------------")
+    player_board.print()
+    x, y = player_board.user_guess()
 
-    if (x, y) in board.ships:
-        print("Hit!")
-        scores[board.type] += 1
+    if (x, y) in computer_board.ships:
+        print(f"Player guessed: ({x}, {y}). Player got a hit!")
+        scores["player"] += 1
     else:
-        print("Miss!")
+        print(f"Player guessed: ({x}, {y}). Player missed this time.")
+        player_board.board[x][y] = "X"
+
+    print("Computer's Turn")
+    print("----------------")
+    computer_board.print()
+    x, y = computer_board.computer_guess()
+
+    if (x, y) in player_board.ships:
+        print(f"Computer guessed: ({x}, {y}). Computer got a hit!")
+        scores["computer"] += 1
+    else:
+        print(f"Computer guessed: ({x}, {y}). Computer missed this time.")
+        player_board.board[x][y] = "X"
+
+    print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
+    print("")
 
 
 def play_game(computer_board, player_board):
@@ -122,20 +144,7 @@ def play_game(computer_board, player_board):
     print("")
 
     while scores["computer"] < player_board.num_ships and scores["player"] < computer_board.num_ships:
-        print("Player's Turn")
-        print("--------------")
-        make_guess(computer_board)
-        print("Player's Score: ", scores["player"])
-        print("")
-
-        if scores["player"] == computer_board.num_ships:
-            break
-
-        print("Computer's Turn")
-        print("----------------")
-        make_guess(player_board)
-        print("Computer's Score: ", scores["computer"])
-        print("")
+        make_guess(computer_board, player_board)
 
     print("Game Over")
     if scores["player"] == computer_board.num_ships:
@@ -147,29 +156,41 @@ def play_game(computer_board, player_board):
 def start_new_game():
     """
     Start new game. Sets the board size and number of ships,
-    resets the scores and initialises the boards.
+    resets the scores and initializes the boards.
     """
     size = 5
     num_ships = 4
     scores["computer"] = 0
     scores["player"] = 0
-    
+
     print("-" * 35)
     print("Welcome to SUPER BATTLESHIPS!!")
     print(f"Board Size: {size}. Number of ships: {num_ships}")
     print("Top left corner is row 0, col: 0")
     print("-" * 35)
-    
+
     player_name = input("Enter your name: \n")
     print("-" * 35)
-    
-    computer_board = Board(size, num_ships, player_name, "computer")
+
+    computer_board = Board(size, num_ships, "Computer", "computer")
     player_board = Board(size, num_ships, player_name, "player")
-    
+
     populate_board(computer_board)
     populate_board(player_board)
-    
+
+    print("Player's Board:")
+    player_board.print()
+
+    print("\nComputer's Board:")
+    computer_board.print()
+
+    print("-" * 35)
+
     play_game(computer_board, player_board)
 
+    print("-" * 35)
+    input("Press any key to continue or 'n' to quit: ")
+    print("-" * 35)
 
-start_new_game()  
+
+start_new_game()
