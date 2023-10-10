@@ -55,3 +55,9 @@ class Board:
                 print("Invalid guess. Try again.")
         self.guesses.append((x, y))
         return (x, y)
+    
+    def get_random_coordinate(self):
+        """
+        Returns a random integer between 0 and size.
+        """
+        return randint(0, self.size - 1)
