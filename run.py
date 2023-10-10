@@ -124,3 +124,20 @@ def play_game(computer_board, player_board):
         print("Congratulations! You won!")
     else:
         print("Better luck next time. The computer won.")
+
+
+def run_game():
+    """
+    Runs the battleships game.
+    """
+    size = int(input("Enter the board size: \n"))
+    num_ships = int(input("Enter the number of ships: \n"))
+
+    computer_board = Board(size, num_ships, "Computer", "computer")
+    player_name = input("Enter your name: \n")
+    player_board = Board(size, num_ships, player_name, "player")
+
+    populate_board(computer_board)
+    populate_board(player_board)
+
+    play_game(computer_board, player_board)
