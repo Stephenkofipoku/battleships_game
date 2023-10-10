@@ -61,8 +61,8 @@ class Board:
         """
         valid_guess = False
         while not valid_guess:
-            x = int(input("Enter the x-coordinate: "))
-            y = int(input("Enter the y-coordinate: "))
+            x = int(input("Enter the x-coordinate (0-9): \n"))
+            y = int(input("Enter the y-coordinate (0-9): \n"))
             if 0 <= x < self.size and 0 <= y < self.size and (x, y) not in self.guesses:
                 valid_guess = True
             else:
@@ -100,7 +100,11 @@ def make_guess(board):
     """
     Makes a guess on the board and updates the scores.
     """
-    x, y = board.user_guess()
+    if board.type == "computer":
+        x, y = board.computer_guess()
+    else:
+        x, y = board.user_guess()
+
     if (x, y) in board.ships:
         print("Hit!")
         scores[board.type] += 1
