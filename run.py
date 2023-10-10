@@ -20,7 +20,22 @@ class Board:
         self.ships = []
 
     def print(self):
+        """
+        Print the board grid.
+        """
         for row in self.baord:
             print(" ".join(row))
     
-    
+    def add_ships(self):
+        """
+        Randomly places the computer's fleet of battleships on the grid.
+        """
+        for _ in range(self.num_ships):
+            ship_placed = False
+            while not ship_placed:
+                x = self.get_random_coordinate()
+                y = self.get_random_coordinate()
+                if self.board[x][y] == ".":
+                    self.board[x][y] = "S"
+                    self.ships.append((x, y))
+                    ship_placed = True
