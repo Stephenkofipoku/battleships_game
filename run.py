@@ -12,7 +12,7 @@ class Board:
 
     def __init__(self, size, num_ships, name, type):
         self.size = size
-        self.baord = [["." for x in range(size)] for y in range(size)]
+        self.board = [["." for x in range(size)] for y in range(size)]
         self.num_ships = num_ships
         self.name = name
         self.type = type
@@ -23,8 +23,9 @@ class Board:
         """
         Print the board grid.
         """
-        for row in self.baord:
-            print(" ".join(row))
+        print(f"{self.name}'s Board:")
+        for row in self.board:
+            print(" ".join(row).replace("S", "." if self.type == "player" else " "))
     
     def add_ships(self):
         """
@@ -126,18 +127,32 @@ def play_game(computer_board, player_board):
         print("Better luck next time. The computer won.")
 
 
-def run_game():
+def start_new_game():
     """
-    Runs the battleships game.
+    Start new game. Sets the board size and number of ships,
+    resets the socres and initialises the boards.
     """
-    size = int(input("Enter the board size: \n"))
-    num_ships = int(input("Enter the number of ships: \n"))
-
-    computer_board = Board(size, num_ships, "Computer", "computer")
+    size = 5
+    num_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
+    
+    print("-" * 35)
+    print("Welcome to SUPER BATTLESHIPS!!")
+    print(f"Board Size: {size}. Number of ships: {num_ships}")
+    print("Top left corner is row 0, col: 0")
+    print("-" * 35)
+    
     player_name = input("Enter your name: \n")
+    print("-" * 35)
+    
+    computer_board = Board(size, num_ships, player_name, "computer")
     player_board = Board(size, num_ships, player_name, "player")
-
+    
     populate_board(computer_board)
     populate_board(player_board)
-
+    
     play_game(computer_board, player_board)
+
+
+start_new_game()  
