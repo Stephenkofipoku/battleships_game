@@ -39,3 +39,19 @@ class Board:
                     self.board[x][y] = "S"
                     self.ships.append((x, y))
                     ship_placed = True
+    
+    def user_guess(self):
+        """
+        Takes user input for the grid coordinates to call shots at the computer's ships.
+        Validates the input and returns the coordinates.
+        """
+        valid_guess = False
+        while not valid_guess:
+            x = int(input("Enter the x-coordinate: "))
+            y = int(input("Enter the y-coordinate: "))
+            if 0 <= x < self.size and 0 <= y < self.size and (x, y) not in self.guesses:
+                valid_guess = True
+            else:
+                print("Invalid guess. Try again.")
+        self.guesses.append((x, y))
+        return (x, y)
