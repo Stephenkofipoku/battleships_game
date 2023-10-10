@@ -22,13 +22,12 @@ class Board:
         """
         Print the board grid.
         """
-        print(f"{self.name}'s Board:")
         if self.type == "player":
-            for row in self.board:
-                print(" ".join(row).replace("S", "@"))
+            print(f"{self.name}'s Board:")
         else:
-            for row in self.board:
-                print(" ".join(row).replace("S", "."))
+            print("Computer's Board:")
+        for row in self.board:
+            print(" ".join(row).replace("S", "@" if self.type == "player" else "."))
 
     def add_ships(self):
         """
@@ -118,6 +117,8 @@ def make_guess(computer_board, player_board):
         print(f"Player guessed: ({x}, {y}). Player missed this time.")
         player_board.board[x][y] = "X"
 
+    print("")
+
     print("Computer's Turn")
     print("----------------")
     computer_board.print()
@@ -130,7 +131,6 @@ def make_guess(computer_board, player_board):
         print(f"Computer guessed: ({x}, {y}). Computer missed this time.")
         player_board.board[x][y] = "X"
 
-    print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
     print("")
 
 
@@ -145,12 +145,21 @@ def play_game(computer_board, player_board):
 
     while scores["computer"] < player_board.num_ships and scores["player"] < computer_board.num_ships:
         make_guess(computer_board, player_board)
+        print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
+        print("")
+        if scores["computer"] < player_board.num_ships and scores["player"] < computer_board.num_ships:
+            choice = input("-----------------------------------\nPress any key to continue or 'n' to quit: ")
+            if choice.lower() == "n":
+                break
 
     print("Game Over")
     if scores["player"] == computer_board.num_ships:
         print("Congratulations! You won!")
     else:
         print("Better luck next time. The computer won.")
+
+    print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
+    print("")
 
 
 def start_new_game():
@@ -178,7 +187,7 @@ def start_new_game():
     populate_board(computer_board)
     populate_board(player_board)
 
-    print("Player's Board:")
+    print("Your Board:")
     player_board.print()
 
     print("\nComputer's Board:")
@@ -189,7 +198,9 @@ def start_new_game():
     play_game(computer_board, player_board)
 
     print("-" * 35)
-    input("Press any key to continue or 'n' to quit: ")
+    choice = input("Press any key to continue or 'n' to quit: ")
+    if choice.lower() != "n":
+        start_new_game()
     print("-" * 35)
 
 
