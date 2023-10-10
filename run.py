@@ -74,8 +74,21 @@ class Board:
         """
         return (x, y) not in self.guesses
 
+
 def populate_board(board):
     """
     Populates the board with ships.
     """
     board.add_ships()
+
+
+def make_guess(board):
+    """
+    Makes a guess on the board and updates the scores.
+    """
+    x, y = board.user_guess()
+    if (x, y) in board.ships:
+        print("Hit!")
+        scores[board.type] += 1
+    else:
+        print("Miss!")
