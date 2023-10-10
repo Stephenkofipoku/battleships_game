@@ -41,6 +41,19 @@ class Board:
                     self.ships.append((x, y))
                     ship_placed = True
     
+    def computer_guess(self):
+        """
+        Automatically selects coordinates for the computer's guess.
+        """
+        valid_guess = False
+        while not valid_guess:
+            x = self.get_random_coordinate()
+            y = self.get_random_coordinate()
+            if (x, y) not in self.guesses:
+                valid_guess = True
+        self.guesses.append((x, y))
+        return (x, y)
+
     def user_guess(self):
         """
         Takes user input for the grid coordinates to call shots at the computer's ships.
@@ -130,7 +143,7 @@ def play_game(computer_board, player_board):
 def start_new_game():
     """
     Start new game. Sets the board size and number of ships,
-    resets the socres and initialises the boards.
+    resets the scores and initialises the boards.
     """
     size = 5
     num_ships = 4
