@@ -138,12 +138,6 @@ def make_guess(computer_board, player_board):
     print("After this round, the scores are: Player:", scores["player"], "Computer:", scores["computer"])
     print("")
 
-    choice = input("Press any key to continue or 'n' to quit: ")
-    if choice.lower() == "n":
-        return
-
-    print("")
-
     print(player_board.name + "'s Board:")
     player_board.print()
 
