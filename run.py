@@ -216,9 +216,10 @@ def start_new_game():
 
     print("-" * 35)
     choice = input("Press any key to continue or 'n' to quit: ")
-    if choice.lower() != "n":
-        start_new_game()
+    if choice.lower() == "n":
+        return
     print("-" * 35)
+    start_new_game()
 
 
 start_new_game()
