@@ -6,7 +6,13 @@ Welcome to the Supper battleships game, a Python terminal game.
 The Battleships game is a classic two-player board game where each player tries to sink the opponent's fleet of ships. Players take turns guessing the coordinates of the opponent's ships on a grid. The first player to sink all of the opponent's ships wins the game.
 
 ## How to Play
-- At the start of the game, each player places their ships on their own grid. The ships can be placed vertically or horizontally, but they cannot overlap or go off the grid.
-- The game begins with the player and the computer taking turns to make guesses.
-- To make a guess, enter the coordinates of the target location on the opponent's grid. For example, to guess the coordinates (1, 3), enter "1,3". The game will validate the input and display the result of the guess.
-- 
+To play the game:
+1. Enter your name when prompted.
+2. The game will display both the player's board and the computer's board.
+3. The player will take turns guessing the coordinates to attack the computer's ships.
+4. Enter the x and y coordinates for your guess when prompted.
+5. The game will indicate whether the guess was a hit or a miss.
+6. The computer will then take its turn and randomly guess coordinates on the player's board.
+7. The game will display the updated scores and the boards after each round.
+8. Continue taking turns until either the player or the computer sinks all the ships.
+9. The game will declare the winner and display the final scores.
