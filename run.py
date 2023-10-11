@@ -1,4 +1,5 @@
 from random import randint
+from termcolor import colored
 
 scores = {"computer": 0, "player": 0}
 
@@ -24,11 +25,14 @@ class Board:
         Print the board grid.
         """
         if self.type == "player":
-            print(f"{self.name}'s Board:")
+            print(colored(f"{self.name}'s Board:", "green"))
         else:
             print("Computer's Board:")
         for row in self.board:
-            print(" ".join(row).replace("S", "@" if self.type == "player" else ".").replace("*", "@").replace("x", "X"))
+            if self.type == "player":
+                print(colored(" ".join(row).replace("S", "@"), "green").replace("*", "@").replace("x", "X"))
+            else:
+                print(" ".join(row).replace("S", "@" if self.type == "player" else ".").replace("*", "@").replace("x", "X"))
 
     def add_ships(self):
         """
@@ -210,15 +214,15 @@ def start_new_game():
     print("\nComputer's Board:")
     computer_board.print()
 
-    print("-" * 35)
+    print(colored("-" * 35, "cyan"))
 
     play_game(computer_board, player_board)
 
-    print("-" * 35)
-    choice = input("Press any key to continue or 'n' to quit: ")
+    print(colored("-" * 35, "cyan"))
+    choice = input(colored("Press any key to continue or 'n' to quit: ", "yellow"))
     if choice.lower() == "n":
         return
-    print("-" * 35)
+    print(colored("-" * 35, "cyan"))
     start_new_game()
 
 
