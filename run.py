@@ -65,8 +65,8 @@ class Board:
         valid_guess = False
         while not valid_guess:
             try:
-                x = int(input("Enter the x-coordinate (0-9): \n"))
-                y = int(input("Enter the y-coordinate (0-9): \n"))
+                x = int(input("Enter the x-coordinate (0-4): \n"))
+                y = int(input("Enter the y-coordinate (0-4): \n"))
                 if self.validate_coordinates(x, y) and self.is_valid_guess(x, y):
                     valid_guess = True
                 else:
