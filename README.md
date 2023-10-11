@@ -16,3 +16,12 @@ To play the game:
 7. The game will display the updated scores and the boards after each round.
 8. Continue taking turns until either the player or the computer sinks all the ships.
 9. The game will declare the winner and display the final scores.
+
+## Features of the game
+- The game initializes with a board size of 5x5 and 4 ships for both the player and the computer.
+- The player's name is entered at the beginning of the game.
+- The player and the computer take turns guessing coordinates to attack each other's ships.
+- The game validates the input coordinates and checks if the guess has already been made.
+- The game randomly places the computer's fleet of ships on the board.
+- The game updates the scores and displays the boards after each round.
+- The game allows the player to start a new game or quit after each round.
