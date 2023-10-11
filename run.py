@@ -194,9 +194,9 @@ def start_new_game():
     scores["player"] = 0
 
     print("-" * 35)
-    print("Welcome to SUPER BATTLESHIPS!!")
-    print(f"Board Size: {size}. Number of ships: {num_ships}")
-    print("Top left corner is row 0, col: 0")
+    print(colored("Welcome to SUPER BATTLESHIPS!!", "magenta"))
+    print(colored("Board Size: 5. Number of ships: 4", "magenta"))
+    print(colored("Top left corner is row 0, col: 0", "magenta"))
     print("-" * 35)
 
     player_name = input("Enter your name: \n")
