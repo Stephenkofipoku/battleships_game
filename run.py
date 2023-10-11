@@ -27,7 +27,7 @@ class Board:
         if self.type == "player":
             print(colored(f"{self.name}'s Board:", "green"))
         else:
-            print("Computer's Board:")
+            print(colored("Computer's Board:", "green"))
         for row in self.board:
             if self.type == "player":
                 print(colored(" ".join(row).replace("S", "@"), "green").replace("*", "@").replace("x", "X"))
@@ -69,14 +69,14 @@ class Board:
         valid_guess = False
         while not valid_guess:
             try:
-                x = int(input("Enter the x-coordinate (0-4): \n"))
-                y = int(input("Enter the y-coordinate (0-4): \n"))
+                x = int(input(colored("Enter the x-coordinate (0-4): \n", "yellow")))
+                y = int(input(colored("Enter the y-coordinate (0-4): \n", "yellow")))
                 if self.validate_coordinates(x, y) and self.is_valid_guess(x, y):
                     valid_guess = True
                 else:
-                    print("Invalid guess. Try again.")
+                    print(colored("Invalid guess. Try again.", "red"))
             except ValueError:
-                print("Invalid input. Please enter valid coordinates.")
+                print(colored("Invalid input. Please enter valid coordinates.", "red"))
         self.guesses.append((x, y))
         return (x, y)
 
@@ -110,76 +110,74 @@ def make_guess(computer_board, player_board):
     """
     Makes a guess on the board and updates the scores.
     """
-    print("Player's Turn")
-    print("--------------")
+    print(colored("Player's Turn", "cyan"))
+    print("-" * 14)
     player_board.print()
     x, y = player_board.user_guess()
 
     if (x, y) in computer_board.ships:
-        print(f"Player guessed: ({x}, {y}). Player got a hit!")
+        print(colored(f"Player guessed: ({x}, {y}). Player got a hit!", "green"))
         scores["player"] += 1
         computer_board.board[x][y] = "*"
     else:
-        print(f"Player guessed: ({x}, {y}). Player missed this time.")
+        print(colored(f"Player guessed: ({x}, {y}). Player missed this time.", "red"))
         player_board.board[x][y] = "x"
 
     print("")
 
-    print("Computer's Turn")
-    print("----------------")
+    print(colored("Computer's Turn", "cyan"))
+    print("-" * 16)
     computer_board.print()
     x, y = computer_board.computer_guess()
 
     if (x, y) in player_board.ships:
-        print(f"Computer guessed: ({x}, {y}). Computer got a hit!")
+        print(colored(f"Computer guessed: ({x}, {y}). Computer got a hit!", "green"))
         scores["computer"] += 1
         player_board.board[x][y] = "*"
     else:
-        print(f"Computer guessed: ({x}, {y}). Computer missed this time.")
+        print(colored(f"Computer guessed: ({x}, {y}). Computer missed this time.", "red"))
         computer_board.board[x][y] = "X"
 
     print("")
 
-    print("After this round, the scores are: Player:", scores["player"], "Computer:", scores["computer"])
+    print(colored(f"After this round, the scores are: Player: {scores['player']}, Computer: {scores['computer']}", "magenta"))
     print("")
 
-    print(player_board.name + "'s Board:")
+    print(colored(player_board.name + "'s Board:", "cyan"))
     player_board.print()
 
     print("")
 
-    print("Computer's Board:")
+    print(colored("Computer's Board:", "cyan"))
     computer_board.print()
 
     print("")
-
-    return
 
 
 def play_game(computer_board, player_board):
     """
     Plays the game by alternating turns between the computer and the player.
     """
-    print("Battleships Game")
-    print("Player: ", player_board.name)
-    print("Computer: ", computer_board.name)
+    print(colored("Battleships Game", "magenta"))
+    print(colored("Player: ", "magenta") + player_board.name)
+    print(colored("Computer: ", "magenta") + computer_board.name)
     print("")
 
     while scores["computer"] < player_board.num_ships and scores["player"] < computer_board.num_ships:
         make_guess(computer_board, player_board)
-        print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
+        print(colored(f"After this round, the scores are: Player: {scores['player']}, Computer: {scores['computer']}", "magenta"))
         print("")
-        choice = input("-----------------------------------\nPress any key to continue or 'n' to quit: ")
+        choice = input(colored("-----------------------------------\nPress any key to continue or 'n' to quit: ", "yellow"))
         if choice.lower() == "n":
             break
 
-    print("Game Over")
+    print(colored("Game Over", "cyan"))
     if scores["player"] == computer_board.num_ships:
-        print("Congratulations! You won!")
+        print(colored("Congratulations! You won!", "green"))
     else:
-        print("Better luck next time. The computer won.")
+        print(colored("Better luck next time. The computer won.", "red"))
 
-    print(f"After this round, the scores are: Player: {scores['player']}. Computer: {scores['computer']}")
+    print(colored(f"After this round, the scores are: Player: {scores['player']}, Computer: {scores['computer']}", "magenta"))
     print("")
 
 
@@ -193,14 +191,14 @@ def start_new_game():
     scores["computer"] = 0
     scores["player"] = 0
 
-    print("-" * 35)
+    print(colored("-" * 35, "cyan"))
     print(colored("Welcome to SUPER BATTLESHIPS!!", "magenta"))
     print(colored("Board Size: 5. Number of ships: 4", "magenta"))
     print(colored("Top left corner is row 0, col: 0", "magenta"))
-    print("-" * 35)
+    print(colored("-" * 35, "cyan"))
 
-    player_name = input("Enter your name: \n")
-    print("-" * 35)
+    player_name = input(colored("Enter your name: \n", "yellow"))
+    print(colored("-" * 35, "cyan"))
 
     computer_board = Board(size, num_ships, "Computer", "computer")
     player_board = Board(size, num_ships, player_name, "player")
@@ -208,10 +206,10 @@ def start_new_game():
     populate_board(computer_board)
     populate_board(player_board)
 
-    print("Your Board:")
+    print(colored("Your Board:", "cyan"))
     player_board.print()
 
-    print("\nComputer's Board:")
+    print("\n" + colored("Computer's Board:", "cyan"))
     computer_board.print()
 
     print(colored("-" * 35, "cyan"))
