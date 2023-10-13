@@ -36,3 +36,22 @@ To play the game:
 ![Game Score Display](./documents/super_battleship_gamescoreboard.png)
 - The game allows the player to start a new game or quit after each round.
 ![Game Instruction to continue or quit](./documents/super_battleship_gameclose.png)
+
+### Features for the future
+
+## Data Model
+The data model of the Supper Battleships Python game consists of the following components:
+
+1. `scores`: A dictionary that keeps track of the scores for the computer and player.
+
+2. `Board` class: Represents the game board. It has attributes such as size, board grid, number of ships, name, type, guesses, and ships. It also has methods for printing the board, adding ships, generating computer's guess, taking user's guess, validating coordinates, and checking if a guess is valid.
+
+3. `populate_board` function: Populates the board with ships.
+
+4. `make_guess` function: Makes a guess on the board and updates the scores.
+
+5. `play_game` function: Plays the game by alternating turns between the computer and the player.
+
+6. `start_new_game` function: Starts a new game by setting the board size, number of ships, resetting the scores, and initializing the boards. It also handles the game flow and allows the player to continue or quit.
+
+Overall, the data model includes the necessary components to manage the game state, handle user input, and perform game logic.
