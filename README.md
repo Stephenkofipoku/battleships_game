@@ -62,3 +62,24 @@ The game was manually tested doing the following:
 - Invalid inputs: when strings are given where numbers were expected, out of range inputs, and repeating inputs were all flagged.
 - The codes were passed through PEP8 and correction made to make sure there are no more errors.
 
+### Bugs
+This is how bugs were solved:
+- In the code writing and testing process, I was getting issues with not printing the computer's board and this was resolved with print computer board statement under the make_guess function.
+- Coordinate validation: I had issue with coordinate guessing as player was able to repeat coordinates is_valid_guess method in the board class.
+
+### Validator Testing
+- PEP8
+    + No errors returned from PEP8online.com
+
+## Deployment
+The project was deployed using Code Institute's mock terminal for Heroku.
+
+- Deployment steps:
+    + Final processes including making sure that requirments.txt to list all installed extension are captured and pushed to repository.
+    + The repository was forked.
+    + A new app was selected in the Heroku platform to create a new app.
+    + The buildpacks were set with Python and NodeJS in that order.
+    + The Heroku app was linked to the repository.
+    + The app was deployed by cliking view.
+    
+
