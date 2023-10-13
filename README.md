@@ -81,5 +81,11 @@ The project was deployed using Code Institute's mock terminal for Heroku.
     + The buildpacks were set with Python and NodeJS in that order.
     + The Heroku app was linked to the repository.
     + The app was deployed by cliking view.
-    
+
+- [The deployment link is](#https://super-battleships-game-0f566b0f59ef.herokuapp.com/)
+
+## Credits
+- Code Institute for the deployment terminal and also the Python repository template in gitHub.
+- Wikepedia for the details for the Battelship game.
+- Google, and ChatGPT from Open AI for editing of codes.
 
