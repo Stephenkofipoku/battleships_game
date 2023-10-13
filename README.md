@@ -55,3 +55,10 @@ The data model of the Supper Battleships Python game consists of the following c
 6. `start_new_game` function: Starts a new game by setting the board size, number of ships, resetting the scores, and initializing the boards. It also handles the game flow and allows the player to continue or quit.
 
 Overall, the data model includes the necessary components to manage the game state, handle user input, and perform game logic.
+
+## Testing
+The game was manually tested doing the following:
+- Using the local codeanywhere development terminal during the coding process, where testing was done where developing.
+- Invalid inputs: when strings are given where numbers were expected, out of range inputs, and repeating inputs were all flagged.
+- The codes were passed through PEP8 and correction made to make sure there are no more errors.
+
