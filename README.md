@@ -20,6 +20,10 @@ To play the game:
 9. The game will declare the winner and display the final scores.
 
 ## Features of the game
+- Different Game Modes: Introduce different game modes to vary the gameplay experience. For example, a timed mode where players have to sink all the opponent's ships within a specific time limit, or a survival mode where players have a limited number of guesses to sink as many ships as possible.
+- Multiplayer Mode: Implement a multiplayer mode that allows players to compete against each other online. This could involve real-time gameplay or turn-based matches with friends or random opponents.
+- Power-Ups: Introduce power-ups that players can collect to gain advantages during the game. For example, a power-up could reveal a portion of the opponent's board or provide an extra guess.
+
 ### Existing Features
 - The player's name is entered at the beginning of the game.
     + Player must enter name to play the game
