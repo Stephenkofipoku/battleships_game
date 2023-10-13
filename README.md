@@ -88,4 +88,5 @@ The project was deployed using Code Institute's mock terminal for Heroku.
 - Code Institute for the deployment terminal and also the Python repository template in gitHub.
 - Wikepedia for the details for the Battelship game.
 - Google, and ChatGPT from Open AI for editing of codes.
+- My mentor, Lauren-Nicole for valuable imputs on approach from the start of the project.
 
