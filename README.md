@@ -37,6 +37,8 @@ To play the game:
 ![Game Score Display](./documents/super_battleship_gamescoreboard.png)
 - The game allows the player to start a new game or quit after each round.
 ![Game Instruction to continue or quit](./documents/super_battleship_gameclose.png)
+- Game completion with a congratulation message to the winner.
+![Game end screen](./documents/super_battleships_endscreen.png)
 
 ### Features for the future
 - Different Game Modes: Introduce different game modes to vary the gameplay experience. For example, a timed mode where players have to sink all the opponent's ships within a specific time limit, or a survival mode where players have a limited number of guesses to sink as many ships as possible.
