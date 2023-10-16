@@ -1,4 +1,15 @@
-# README BATTLESHIPS GAME
+# README FOR BATTLESHIPS GAME
+
+## CONTENTS
+- [CONTENTS](#contents)
+- [Description](#description)
+- [How to Play](#how-to-play)
+- [Features of the game](#features-of-the-game)
+    + [Existing Features](#existing-features)
+    + [Features for the future](#features-for-the-future)
+- [Data Model](#data-model)
+- [Testing](#)
+
 
 Welcome to the Supper battleships game, a Python terminal game.
 
