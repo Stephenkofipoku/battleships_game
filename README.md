@@ -82,9 +82,20 @@ The data model of the Supper Battleships Python game consists of the following c
 Overall, the data model includes the necessary components to manage the game state, handle user input, and perform game logic.
 
 ## Testing
-The game was manually tested doing the following:
-- Using the local codeanywhere development terminal during the coding process, where testing was done where developing.
-- Invalid inputs: when strings are given where numbers were expected, out of range inputs, and repeating inputs were all flagged.
+
+**TEST** | **ACTION** | **EXPECTATION** | **RESULT** 
+----------|----------|----------|----------
+Input - Show instructions -  Invalid data | Entered in : blank space, return key, symbols, numbers	| app informs user of invalid data & prompts the user Invalid input. Please enter 'yes' or 'no'.| Works as expected
+Input - Show instructions - Valid data	| Entered in : characters in scope | app proceeds to next function | Works as expected
+Input - User name - Invalid data	| Entered in : blank space, return key, symbols, numbers	| app informs user of invalid data & prompts the user Please enter alphabetic characters only.| Works as expected
+Input - User name - Valid data	| Entered in : characters in scope | app proceeds to next function | Works as expected
+Input - Enter the x-coordinate (0-4):, Enter the y-coordinate (0-4): - Invalid data	| Entered in : blank space, return key, symbols, numbers	| app informs user of invalid data & prompts the user nvalid guess. Try again or Invalid input. Please enter valid coordinates if a string is entered.| Works as expected
+Input -  Enter the x-coordinate (0-4):, Enter the y-coordinate (0-4): characters in scope | app proceeds to next function | Works as expected
+Input - Choice input to continue or exit -  Any key to continue | Entered in : blank space or any key, return key, symbols, numbers	| app Continues to the next stage of the gam.| Works as expected
+Input - Choice input n key to exit - Valid data	| Entered in : 'n' to exit game | app proceeds to next function | Works as expected
+Input - Play again -  Invalid data | Entered in : blank space or any thing apart fron yes/no, return key, symbols, numbers	| app informs user of invalid data & prompts the user Invalid input. | Works as expected
+Input - Show instructions - Valid data	| Entered in : yes/no | app proceeds to next function | Works as expected
+
 - The codes were passed through PEP8 and correction made to make sure there are no more errors.
 
 ### Bugs
