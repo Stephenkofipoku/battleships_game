@@ -11,7 +11,7 @@
 - [Testing](#)
 
 
-Welcome to the Supper battleships game, a Python terminal game.
+Welcome to the Super battleships game, a Python terminal game.
 
 ## Description
 The Battleships game is a classic two-player board game where each player tries to sink the opponent's fleet of ships. Players take turns guessing the coordinates of the opponent's ships on a grid. The first player to sink all of the opponent's ships wins the game.

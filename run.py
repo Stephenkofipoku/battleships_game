@@ -197,7 +197,13 @@ def start_new_game():
     print(colored("Top left corner is row 0, col: 0", "magenta"))
     print(colored("-" * 35, "cyan"))
 
-    player_name = input(colored("Enter your name: \n", "yellow"))
+    player_name = ""
+    while not player_name.isalpha() or not player_name:
+        player_name = input(colored("Enter your name: \n", "yellow"))
+        if not player_name.isalpha():
+            print(colored("Invalid input. Please enter alphabetic characters only.", "red"))
+        elif not player_name:
+            print(colored("Invalid input. Please enter a non-empty name.", "red"))
     print(colored("-" * 35, "cyan"))
 
     computer_board = Board(size, num_ships, "Computer", "computer")
