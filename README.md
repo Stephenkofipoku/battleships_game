@@ -89,8 +89,8 @@ Input - Show instructions -  Invalid data | Entered in : blank space, return key
 Input - Show instructions - Valid data	| Entered in : characters in scope | app proceeds to next function | Works as expected
 Input - User name - Invalid data	| Entered in : blank space, return key, symbols, numbers	| app informs user of invalid data & prompts the user Please enter alphabetic characters only.| Works as expected
 Input - User name - Valid data	| Entered in : characters in scope | app proceeds to next function | Works as expected
-Input - Enter the x-coordinate (0-4):, Enter the y-coordinate (0-4): - Invalid data	| Entered in : blank space, return key, symbols, numbers	| app informs user of invalid data & prompts the user nvalid guess. Try again or Invalid input. Please enter valid coordinates if a string is entered.| Works as expected
-Input -  Enter the x-coordinate (0-4):, Enter the y-coordinate (0-4): characters in scope | app proceeds to next function | Works as expected
+Input - Enter the x-coordinate:, Enter the y-coordinate: - Invalid data	| Entered in : blank space, return key, symbols, numbers (above 4)	| app informs user of invalid data & prompts the user nvalid guess. Try again or Invalid input. Please enter valid coordinates if a string is entered.| Works as expected
+Input -  Enter the x-coordinate(0-4):, Enter the y-coordinate (0-4): | Enter in:  characters in scope | app proceeds to next function | Works as expected
 Input - Choice input to continue or exit -  Any key to continue | Entered in : blank space or any key, return key, symbols, numbers	| app Continues to the next stage of the gam.| Works as expected
 Input - Choice input n key to exit - Valid data	| Entered in : 'n' to exit game | app proceeds to next function | Works as expected
 Input - Play again -  Invalid data | Entered in : blank space or any thing apart fron yes/no, return key, symbols, numbers	| app informs user of invalid data & prompts the user Invalid input. | Works as expected
@@ -111,6 +111,9 @@ This is how bugs were solved:
 The project was deployed using Code Institute's mock terminal for Heroku.
 
 - Deployment steps:
+    + The repository was created in GitHub by forking a copy from the original Code Institute python repo template. This was done on GitHub by clicking the "Fork" button to create a copy of the original repository.
+    + After forking the repository, it was cloned or copied into Codeanywhere and opened by creating a new workspace. 
+    + Git add/commit/push to GitHub: With the project open in your Codeanywhere, changes were made to the codebase and after desired changes, Git commands to stage the modified files (git add), create a commit with a descriptive message (git commit), and push the changes to your forked repository on GitHub (git push) were done.
     + Final processes including making sure that requirments.txt to list all installed extension are captured and pushed to repository.
     + The repository was forked.
     + A new app was selected in the Heroku platform to create a new app.
