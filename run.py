@@ -96,7 +96,10 @@ class Board:
         """
         Checks if the guess has already been made.
         """
-        return (x, y) not in self.guesses
+        if (x, y) in self.guesses:
+            print(colored("Coordinates repeated, ", "red"))
+            return False
+        return True
 
 
 def populate_board(board):
