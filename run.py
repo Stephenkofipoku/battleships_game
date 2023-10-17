@@ -186,9 +186,25 @@ def play_game(computer_board, player_board):
 
 def start_new_game():
     """
-    Start new game. Sets the board size and number of ships,
+    Game instructions. Start new game. Sets the board size and number of ships,
     resets the scores and initializes the boards.
     """
+    
+    print(colored("Welcome to Super Battleships!", "cyan"))
+    show_instructions = input(colored("Do you want to see the game instructions? (yes/no): ", "yellow"))
+    if show_instructions.lower() == "yes":
+        print(colored("How to Play\n"
+                      "To play the game:\n"
+                      "1. Enter your name when prompted.\n"
+                      "2. The game will display both the player's board and the computer's board.\n"
+                      "3. The player will take turns guessing the coordinates to attack the computer's ships.\n"
+                      "4. Enter the x and y coordinates for your guess when prompted.\n"
+                      "5. The game will indicate whether the guess was a hit or a miss.\n"
+                      "6. The computer will then take its turn and randomly guess coordinates on the player's board.\n"
+                      "7. The game will display the updated scores and the boards after each round.\n"
+                      "8. Continue taking turns until either the player or the computer sinks all the ships.\n"
+                      "9. The game will declare the winner and display the final scores.\n", "cyan"))
+
     size = 5
     num_ships = 4
     scores["computer"] = 0
