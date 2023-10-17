@@ -1,3 +1,4 @@
+import sys
 from random import randint
 from termcolor import colored
 
@@ -189,7 +190,7 @@ def start_new_game():
     Game instructions. Start new game. Sets the board size and number of ships,
     resets the scores and initializes the boards.
     """
-    
+
     print(colored("Welcome to Super Battleships!", "cyan"))
     show_instructions = input(colored("Do you want to see the game instructions? (yes/no): ", "yellow"))
     if show_instructions.lower() == "yes":
@@ -241,12 +242,12 @@ def start_new_game():
 
     play_game(computer_board, player_board)
 
-    print(colored("-" * 35, "cyan"))
-    choice = input(colored("Press any key to continue or 'n' to quit: ", "yellow"))
-    if choice.lower() == "n":
-        return
-    print(colored("-" * 35, "cyan"))
-    start_new_game()
+    play_again = input(colored("Do you want to play again? (yes/no): ", "yellow"))
+    if play_again.lower() == "yes":
+        start_new_game()
+    else:
+        print(colored("Thank you for playing the Super Battleships Game! Goodbye!", "cyan"))
+        sys.exit()
 
 
 start_new_game()

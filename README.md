@@ -16,6 +16,14 @@ Welcome to the Super battleships game, a Python terminal game.
 ## Description
 The Battleships game is a classic two-player board game where each player tries to sink the opponent's fleet of ships. Players take turns guessing the coordinates of the opponent's ships on a grid. The first player to sink all of the opponent's ships wins the game.
 
+This Battleships game offers a modern twist on the traditional gameplay. With vibrant colors and visually appealing graphics, players are immersed in an immersive and captivating gaming environment. The use of the `termcolor` library allows for colorful and eye-catching text, adding an extra layer of excitement to the gameplay.
+
+Furthermore, this game provides a user-friendly interface, making it accessible to players of all ages and skill levels. Whether you are a seasoned Battleships player or new to the game, our intuitive design ensures a seamless and enjoyable gaming experience.
+
+The purpose of playing Battleships is to challenge your strategic thinking and decision-making skills. By carefully selecting coordinates and anticipating your opponent's moves, you can strategically position your shots to sink their fleet. The thrill of successfully hitting an opponent's ship and the suspense of avoiding enemy fire make Battleships a highly engaging and addictive game.
+
+With its visually appealing design, user-friendly interface, and exciting gameplay, this Battleships game is sure to attract players who seek an immersive and captivating gaming experience. So, gather your friends, family, or challenge the computer, and embark on an epic naval battle that will keep you entertained.
+
 ![Here is a live version of the game](./documents/super_battleships_iamresponsive.png)
 
 ## How to Play
